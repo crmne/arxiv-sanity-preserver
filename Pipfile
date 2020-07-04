@@ -1,0 +1,28 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+yapf = "*"
+isort = "*"
+autoflake = "*"
+
+[packages]
+feedparser = "*"
+numpy = "*"
+scipy = "*"
+scikit-learn = "*"
+python-twitter = "*"
+pytz = "*"
+python-dateutil = "*"
+flask = "*"
+flask-limiter = "*"
+tornado = "*"
+pymongo = "*"
+
+[requires]
+python_version = "3"
+
+[scripts]
+beautify = "bash -c \"autoflake -i -r --expand-star-imports --remove-all-unused-imports --remove-duplicate-keys --remove-unused-variables *.py; isort *.py; yapf -i -r -p --style pep8 *.py\""
