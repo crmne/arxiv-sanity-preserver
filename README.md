@@ -18,9 +18,8 @@ There are two large parts of the code:
 Several: You will need numpy, feedparser (to process xml files), scikit learn (for tfidf vectorizer, training of SVM), flask (for serving the results), flask_limiter, and tornado (if you want to run the flask server in production). Also dateutil, and scipy. And sqlite3 for database (accounts, library support, etc.). Most of these are easy to get through `pip`, e.g.:
 
 ```bash
-$ virtualenv env                # optional: use virtualenv
-$ source env/bin/activate       # optional: use virtualenv
-$ pip install -r requirements.txt
+pip install pipenv
+pipenv install
 ```
 
 You will also need [ImageMagick](http://www.imagemagick.org/script/index.php) and [pdftotext](https://poppler.freedesktop.org/), which you can install on Ubuntu as `sudo apt-get install imagemagick poppler-utils`. Bleh, that's a lot of dependencies isn't it.
@@ -38,7 +37,7 @@ The processing pipeline requires you to run a series of scripts, and at this sta
 7. Run `make_cache.py` for various preprocessing so that server starts faster (and make sure to run `sqlite3 as.db < schema.sql` if this is the very first time ever you're starting arxiv-sanity, which initializes an empty database).
 8. Start the mongodb daemon in the background. Mongodb can be installed by following the instructions here - https://docs.mongodb.com/tutorials/install-mongodb-on-ubuntu/.
   * Start the mongodb server with - `sudo service mongod start`.
-  * Verify if the server is running in the background : The last line of /var/log/mongodb/mongod.log file must be - 
+  * Verify if the server is running in the background : The last line of /var/log/mongodb/mongod.log file must be -
 `[initandlisten] waiting for connections on port <port> `
 9. Run the flask server with `serve.py`. Visit localhost:5000 and enjoy sane viewing of papers!
 
