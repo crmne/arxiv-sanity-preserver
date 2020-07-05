@@ -10,7 +10,7 @@ import pymongo
 from flask import (Flask, _app_ctx_stack, abort, flash, g, redirect,
                    render_template, request, session, url_for)
 from flask_limiter import Limiter
-from werkzeug import check_password_hash, generate_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 
 from utils import Config, isvalidid, strip_version
 
